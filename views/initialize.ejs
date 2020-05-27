@@ -1,3 +1,10 @@
+<script src="libs/reveal.js/4.0.1/dist/reveal.js"></script>
+<script src="libs/reveal.js/4.0.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.0.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.0.1/plugin/search/search.js"></script>
+<script src="libs/reveal.js/4.0.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.0.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.0.1/plugin/plugin/math/math.js"></script>
 <script>
 
     // More info https://github.com/hakimel/reveal.js#configuration
@@ -74,7 +81,6 @@
             <% if (enableTitleFooter) { %>
         { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
             <% } %>
-        */
         {
             src: 'libs/highlight.js/9.15.10/reveal-code-focus-1.0.0-mod.js',
             async: true,
@@ -83,6 +89,7 @@
             }
         },
            // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
+        */
         ]
         ,
     keyboard: {
@@ -93,9 +100,9 @@
         68: function () { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
     },
     math: {
-       // mathjax: 'libs/reveal.js/3.8.0/plugin/math/MathJax.js',
-             mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-            config: 'TeX-AMS_HTML-full'
+        mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+        config: 'TeX-AMS_HTML-full',
+        TeX: { Macros: { RR: "{\\bf R}" } }
     },
     chart: {
         defaults: {
