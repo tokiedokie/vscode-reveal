@@ -47,6 +47,7 @@
         parallaxBackgroundVertical: <%= parallaxBackgroundVertical %>,
         display: '<%= display%>',
 
+        /*
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
             // { src: 'libs/reveal.js/3.8.0/lib/js/classList.js', condition: function () { return !document.body.classList; } },
@@ -61,36 +62,35 @@
             { src: 'libs/reveal.js/3.8.0/plugin/anything/anything.js' },
             { src: 'libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js', async: true, callback: function() {mermaid.initialize({startOnLoad:false})} },	
 
-        /*
-           <% if (enableSearch) { %>
-        { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
-           <% } %>
+            <% if (enableSearch) { %>
+            { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
+            <% } %>
 
-           <% if (enableZoom) { %>
-        { src: 'libs/reveal.js/3.8.0/plugin/zoom-js/zoom.js', async: true },
+            <% if (enableZoom) { %>
+            { src: 'libs/reveal.js/3.8.0/plugin/zoom-js/zoom.js', async: true },
             <% } %>
 
             <% if (enableChalkboard) { %>
-        { src: 'libs/reveal.js/3.8.0/plugin/chalkboard/chalkboard.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/chalkboard/chalkboard.js' },
             <% } %>
 
             <% if (enableMenu) { %>
-        { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
+            { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
             <% } %>
 
             <% if (enableTitleFooter) { %>
-        { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
+            { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
             <% } %>
-        {
-            src: 'libs/highlight.js/9.15.10/reveal-code-focus-1.0.0-mod.js',
-            async: true,
-            callback: function () {
-                RevealCodeFocus();
-            }
-        },
-           // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
-        */
+            {
+                src: 'libs/highlight.js/9.15.10/reveal-code-focus-1.0.0-mod.js',
+                async: true,
+                callback: function () {
+                    RevealCodeFocus();
+                }
+            },
+            // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
         ],
+        */
         keyboard: {
             67: function () { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
             66: function () { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
