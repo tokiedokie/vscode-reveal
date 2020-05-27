@@ -44,7 +44,8 @@ export class RevealServer {
     }
 
     const addr = this.server.address()
-    return typeof addr === 'string' ? addr : `http://${this.host}:${addr.port}/`
+    // i don't know why addr can be null
+    return typeof addr === 'string' ? addr : `http://${this.host}:${addr? addr.port : ''}/`
   }
   public start() {
     try {
