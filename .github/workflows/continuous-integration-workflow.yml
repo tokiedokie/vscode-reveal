@@ -29,6 +29,6 @@ jobs:
           npm run vscode:prepublish
           
 
-      - name: test
-        run:
-          npm run coverage
+      #- name: test
+      #  run:
+      #    npm run coverage
