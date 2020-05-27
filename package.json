@@ -10,7 +10,7 @@
   "preview": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/evilz/vscode-reveal"
+    "url": "https://github.com/tokiedokie/reveal-markdown"
   },
   "engines": {
     "vscode": "^1.36.0"
