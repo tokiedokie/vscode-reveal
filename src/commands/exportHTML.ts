@@ -1,4 +1,4 @@
-import * as opn from 'opn'
+import * as opn from 'open'
 import { Logger } from '../Logger'
 
 import { ShellExecution, Task, TaskDefinition } from 'vscode';

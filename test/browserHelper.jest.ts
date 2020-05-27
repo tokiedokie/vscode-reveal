@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import * as opn from 'opn'
+import * as opn from 'oepn'
 import * as os from 'os'
 import { DEFAULT_CHROME_PATH, getChromePath, openInBrowser } from '../src/BrowserHelper'
 
