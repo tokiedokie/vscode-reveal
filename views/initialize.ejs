@@ -1,5 +1,7 @@
 <script src="libs/reveal.js/4.0.1/dist/reveal.js"></script>
+<% if (enableZoom) { %>
 <script src="libs/reveal.js/4.0.1/plugin/zoom/zoom.js"></script>
+<% } %>
 <script src="libs/reveal.js/4.0.1/plugin/notes/notes.js"></script>
 <script src="libs/reveal.js/4.0.1/plugin/search/search.js"></script>
 <script src="libs/reveal.js/4.0.1/plugin/markdown/markdown.js"></script>
@@ -47,6 +49,7 @@
         parallaxBackgroundVertical: <%= parallaxBackgroundVertical %>,
         display: '<%= display%>',
 
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath]
         /*
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
@@ -64,10 +67,6 @@
 
             <% if (enableSearch) { %>
             { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
-            <% } %>
-
-            <% if (enableZoom) { %>
-            { src: 'libs/reveal.js/3.8.0/plugin/zoom-js/zoom.js', async: true },
             <% } %>
 
             <% if (enableChalkboard) { %>
