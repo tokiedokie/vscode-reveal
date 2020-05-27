@@ -50,28 +50,23 @@
         display: '<%= display%>',
 
         plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath],
+        
+        
+        math: {
+            mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+            config: 'TeX-AMS_HTML-full',
+            TeX: { Macros: { RR: "{\\bf R}" } }
+        },
         /*
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            // { src: 'libs/reveal.js/3.8.0/lib/js/classList.js', condition: function () { return !document.body.classList; } },
-            // { src: 'libs/reveal.js/3.8.0/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-            // { src: 'libs/reveal.js/3.8.0/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-            { src: 'libs/reveal.js/3.8.0/plugin/notes/notes.js', async: true },
-            { src: 'libs/reveal.js/3.8.0/plugin/chart/Chart.min.js' },
-            { src: 'libs/reveal.js/3.8.0/plugin/chart/csv2chart.js' },
-            { src: 'libs/reveal.js/3.8.0/plugin/embed-tweet/embed-tweet.js' },
-            { src: 'libs/reveal.js/3.8.0/plugin/math/math.js', async: true },
-            { src: 'libs/highlight.js/9.15.10/highlight.js', async: true },
-            { src: 'libs/reveal.js/3.8.0/plugin/anything/anything.js' },
-            { src: 'libs/reveal.js/3.8.0/plugin/mermaid/mermaid.min.js', async: true, callback: function() {mermaid.initialize({startOnLoad:false})} },	
-
             <% if (enableSearch) { %>
             { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
             <% } %>
 
             <% if (enableChalkboard) { %>
-            { src: 'libs/reveal.js/3.8.0/plugin/chalkboard/chalkboard.js' },
-            <% } %>
+            { src: 'libs/reveal.js-plugins/3.8.0/plugin/chalkboard/chalkboard.js' },
+            <% } %>    
 
             <% if (enableMenu) { %>
             { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
@@ -89,7 +84,6 @@
             },
             // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
         ],
-        */
         keyboard: {
             67: function () { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
             66: function () { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
@@ -97,12 +91,6 @@
             8: function () { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
             68: function () { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
         },
-        math: {
-            mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-            config: 'TeX-AMS_HTML-full',
-            TeX: { Macros: { RR: "{\\bf R}" } }
-        },
-        /*
         chart: {
             defaults: {
                 global: {
