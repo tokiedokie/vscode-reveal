@@ -1,22 +1,18 @@
 <% slides.forEach(function(slide){ %>
-
-
-    <% if (slide.children.length === 0){ %>
-        <%- "<section " + slide.attributes + ">" %>
-            
-            <%- slide.html %>
-            <%- "</section>" %>
-    <% } else {%>
+  <% if (slide.children.length === 0){ %>
+    <%- "<section " + slide.attributes + ">" %>
+      <%- slide.html %>
+    <%- "</section>" %>
+  <% } else {%>
     <section>
-        <%- "<section " + slide.attributes + ">" %>
-            <%- slide.html %>
-            <%- "</section>" %>
-        <% slide.children.forEach(function(child){ %>
-            <%- "<section " + child.attributes + ">" %>
-                <%- child.html %>
-            <%- "</section>" %>
-        <% }) %>
-
+      <%- "<section " + slide.attributes + ">" %>
+        <%- slide.html %>
+      <%- "</section>" %>
+      <% slide.children.forEach(function(child){ %>
+        <%- "<section " + child.attributes + ">" %>
+          <%- child.html %>
+        <%- "</section>" %>
+      <% }) %>
     </section>
-    <% } %>
+  <% } %>
 <% }) %>
