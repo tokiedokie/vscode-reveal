@@ -1,16 +1,14 @@
-# vscode-reveal [![](https://img.shields.io/visual-studio-marketplace/v/evilz.vscode-reveal)](https://marketplace.visualstudio.com/items?itemName=evilz.vscode-reveal) ![install](https://img.shields.io/visual-studio-marketplace/i/evilz.vscode-reveal)
+# vscode-reveal [![](https://img.shields.io/visual-studio-marketplace/v/tokiedokie.reveal-markdown)](https://marketplace.visualstudio.com/items?itemName=tokiedokie.reveal-markdown) ![install](https://img.shields.io/visual-studio-marketplace/i/tokiedokie.reveal-markdown)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=evilz_vscode-reveal&metric=alert_status)](https://sonarcloud.io/dashboard?id=evilz_vscode-reveal)
-
-[![Known Vulnerabilities](https://snyk.io/test/github/evilz/vscode-reveal/badge.svg?targetFile=package.json)](https://snyk.io/test/github/evilz/vscode-reveal?targetFile=package.json)
+[![Known Vulnerabilities](https://snyk.io/test/github/tokiedokie/reveal-markdown/badge.svg?targetFile=package.json)](https://snyk.io/test/github/tokiedokie/reveal-markdown?targetFile=package.json)
 
 This extension let you display a reveal.js presentation directly from an opened markdown document.
 
-This is fork from [vscode-reveal](https://github.com/evilz/vscode-reveal.git).
+This is fork from [vscode-reveal](https://github.com/tokiedokie/reveal-markdown.git).
 
 Original extension uses Reveal.js 3.8.0, but this extension uses Reveal.js 4
 
-![demo](https://github.com/evilz/vscode-reveal/raw/master/images/demo2.0-bis.gif)
+![demo](https://github.com/tokiedokie/reveal-markdown/raw/master/images/demo2.0-bis.gif)
 
 ## Features
 
@@ -39,14 +37,14 @@ Since Reveal.js use marked to parse the markdown string you can use this in your
 - GFM tables
 
 If you need a sample file you can get it here:
-https://raw.githubusercontent.com/evilz/vscode-reveal/master/sample.md
+https://raw.githubusercontent.com/tokiedokie/reveal-markdown/master/sample.md
 
 
 ## <a id="statusbar"></a> Status bar
 
 As soon as your markdown document has at least two slides, slides counter will appear in the status bar on right.
 
-![](https://github.com/evilz/vscode-reveal/raw/master/images/statusbar.png)
+![](https://github.com/tokiedokie/reveal-markdown/raw/master/images/statusbar.png)
 
 Clicking on slide counter will launch preview on right, and you can now see the local address of express server used to host Reveal presentation.
 Clicking on the address will launch presentation in the browser.
@@ -63,7 +61,7 @@ Blue icon is used to show horizontal slide, orange is used for vertical ones.
 Clicking on slide name will move the cursor on beginning of the slide in the editor.
 If the preview is opened it will also show the selected slide on it.
 
-![](https://github.com/evilz/vscode-reveal/raw/master/images/sidebar.png)
+![](https://github.com/tokiedokie/reveal-markdown/raw/master/images/sidebar.png)
 
 
 ## <a id="theme"></a> Theme
