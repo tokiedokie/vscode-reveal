@@ -187,7 +187,7 @@ This will try to launch Chrome in headless or your default browser it takes abou
 
 ## <a id="plugins"></a> Plugins
 
-### Disable slideout menu
+### Disable slideout menu (no longer supported)
 
 ```
 ---
