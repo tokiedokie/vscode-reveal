@@ -1,4 +1,4 @@
-import * as attrs from '@evilz/markdown-it-attrs'
+import * as attrs from 'markdown-it-attrs'
 import * as md from 'markdown-it'
 import * as blockEmbed from 'markdown-it-block-embed'
 import * as container from 'markdown-it-container'
