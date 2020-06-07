@@ -21,7 +21,7 @@ Original extension uses Reveal.js 3.8.0, but this extension uses Reveal.js 4
 - [Open in browser](#browser)
 - [Print to PDF](#pdf)
 - [Export static Website](#htmlexport)
-- [Plugins](#plugins)
+- [Plugins](#plugins) (no longer supported)
 - [FAQ](#faq)
 
 ## <a id="markdown"></a> Markdown
@@ -187,7 +187,7 @@ This will try to launch Chrome in headless or your default browser it takes abou
 
 ## <a id="plugins"></a> Plugins
 
-### Disable slideout menu (no longer supported)
+### Disable slideout menu
 
 ```
 ---
