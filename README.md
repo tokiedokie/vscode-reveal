@@ -1,7 +1,5 @@
 # vscode-reveal [![](https://img.shields.io/visual-studio-marketplace/v/tokiedokie.reveal-markdown)](https://marketplace.visualstudio.com/items?itemName=tokiedokie.reveal-markdown) ![install](https://img.shields.io/visual-studio-marketplace/i/tokiedokie.reveal-markdown)
 
-[![Known Vulnerabilities](https://snyk.io/test/github/tokiedokie/reveal-markdown/badge.svg?targetFile=package.json)](https://snyk.io/test/github/tokiedokie/reveal-markdown?targetFile=package.json)
-
 This extension let you display a reveal.js presentation directly from an opened markdown document.
 
 This is fork from [vscode-reveal](https://github.com/tokiedokie/reveal-markdown.git).
