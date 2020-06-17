@@ -2,7 +2,7 @@
   "name": "reveal-markdown",
   "displayName": "reveal-markdown",
   "description": "Show markdown as revealJs presentation",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "publisher": "tokiedokie",
   "author": "Vincent Bourdon",
   "license": "MIT",
