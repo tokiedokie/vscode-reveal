@@ -11,19 +11,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- REVEAL CSS-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="libs/reveal.js/4.0.1/dist/reset.css">
-  <link rel="stylesheet" href="libs/reveal.js/4.0.1/dist/reveal.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.0.2/dist/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.0.2/dist/reveal.css">
   <% if (theme) { %>
-  <link rel="stylesheet" href="libs/reveal.js/4.0.1/dist/theme/<%=theme%>.css" id="theme">
+  <link rel="stylesheet" href="libs/reveal.js/4.0.2/dist/theme/<%=theme%>.css" id="theme">
   <%}%>
   
   <!--
-  <link rel="stylesheet" href="libs/reveal.js/4.0.1/plugin/title-footer/title-footer-mod.css" />
+  <link rel="stylesheet" href="libs/reveal.js/4.0.2/plugin/title-footer/title-footer-mod.css" />
   -->
 
   <!-- MERMAID-->
   <!--
-  <script src="libs/reveal.js/4.0.1/plugin/mermaid/mermaid.min.js"></script>
+  <script src="libs/reveal.js/4.0.2/plugin/mermaid/mermaid.min.js"></script>
   <style>
   .mermaid {
     font-size: 0.5em;
@@ -97,9 +97,9 @@
 
   <!-- Theme used for syntax highlighting of code -->
   <% if (highlightTheme) { %>
-  <link rel="stylesheet" href="libs/reveal.js/4.0.1/plugin/highlight/<%=highlightTheme%>.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.0.2/plugin/highlight/<%=highlightTheme%>.css">
   <%} else {%>
-  <link rel="stylesheet" href="libs/reveal.js/4.0.1/plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.0.2/plugin/highlight/monokai.css">
   <%}%>
 
   <% if (customTheme) { %>
@@ -111,7 +111,7 @@
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/4.0.1/dist/print/pdf.css' : 'libs/reveal.js/4.0.1/dist/print/paper.css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/4.0.2/dist/print/pdf.css' : 'libs/reveal.js/4.0.2/dist/print/paper.css';
     document.getElementsByTagName('head')[0].appendChild(link);
   </script>
 

@@ -218,17 +218,17 @@ You can select from different transitions, like:
 ## Themes
 
 reveal.js comes with a few themes built in:
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/black.css'); return false;">Black (default)</a> -
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/white.css'); return false;">White</a> -
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/league.css'); return false;">League</a> -
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/sky.css'); return false;">Sky</a> -
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/beige.css'); return false;">Beige</a> -
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/simple.css'); return false;">Simple</a> <br>
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/serif.css'); return false;">Serif</a> -
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/blood.css'); return false;">Blood</a> -
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/night.css'); return false;">Night</a> -
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/moon.css'); return false;">Moon</a> -
-<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.1/css/theme/solarized.css'); return false;">Solarized</a>
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/black.css'); return false;">Black (default)</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/white.css'); return false;">White</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/league.css'); return false;">League</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/sky.css'); return false;">Sky</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/beige.css'); return false;">Beige</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/simple.css'); return false;">Simple</a> <br>
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/serif.css'); return false;">Serif</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/blood.css'); return false;">Blood</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/night.css'); return false;">Night</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/moon.css'); return false;">Moon</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','libs/reveal.js/4.0.2/css/theme/solarized.css'); return false;">Solarized</a>
 
 ---
 
