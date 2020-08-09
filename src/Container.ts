@@ -137,7 +137,7 @@ export default class Container {
             
             })
             this.webView ? this.refreshWebView() : await commands.executeCommand(SHOW_REVEALJS)
-            http.get(this.getUri(false) + "libs/reveal.js/4.0.2/plugin/notes/notes.html");
+            http.get(this.getUri(false) + "libs/reveal.js/plugin/notes/notes.html");
           
           return promise
       //   } catch (e) {
