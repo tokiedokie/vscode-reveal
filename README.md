@@ -2,7 +2,7 @@
 
 This extension let you display a reveal.js presentation directly from an opened markdown document.
 
-This is fork of [vscode-reveal](https://github.com/tokiedokie/reveal-markdown.git).
+This is fork of [vscode-reveal](https://github.com/evilz/vscode-reveal).
 
 Original extension uses Reveal.js 3.8.0, but this extension uses Reveal.js 4
 
