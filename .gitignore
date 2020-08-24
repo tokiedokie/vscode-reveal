@@ -4,6 +4,7 @@
 
 # vscode 
 /.vscode-test
+*.vsix
 
 
 # Logs
