@@ -8,7 +8,10 @@ export class StatusBarController {
   private readonly addressItem: StatusBarItem
   private readonly stopItem: StatusBarItem
 
-  constructor (private readonly getServerUri: () => string | null, private readonly getSlidesCount: () => number) {
+  constructor(
+    private readonly getServerUri: () => string | null,
+    private readonly getSlidesCount: () => number
+  ) {
     this.addressItem = window.createStatusBarItem(StatusBarAlignment.Right, 100)
     this.addressItem.command = SHOW_REVEALJS_IN_BROWSER
     this.addressItem.hide()
@@ -26,7 +29,7 @@ export class StatusBarController {
     this.update()
   }
 
-  public update () {
+  public update() {
     const serverUri = this.getServerUri()
     const slideCount = this.getSlidesCount()
     this.updateAddress(serverUri)
@@ -34,13 +37,13 @@ export class StatusBarController {
     this.updateStop(serverUri)
   }
 
-  public dispose () {
+  public dispose() {
     this.addressItem.dispose()
     this.countItem.dispose()
     this.stopItem.dispose()
   }
 
-  private updateAddress (serverUri: string | null) {
+  private updateAddress(serverUri: string | null) {
     if (serverUri !== null) {
       this.addressItem.text = `$(server) ${serverUri}`
       this.addressItem.show()
@@ -50,7 +53,7 @@ export class StatusBarController {
     }
   }
 
-  private updateStop (serverUri: string | null) {
+  private updateStop(serverUri: string | null) {
     if (serverUri === null) {
       this.stopItem.hide()
     } else {
@@ -58,7 +61,7 @@ export class StatusBarController {
     }
   }
 
-  private updateCount (slideCount: number) {
+  private updateCount(slideCount: number) {
     if (slideCount < 2) {
       this.countItem.text = ''
       this.countItem.hide()

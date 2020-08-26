@@ -1,10 +1,9 @@
-
 import * as jetpack from 'fs-jetpack'
 import * as path from 'path'
 
 export interface IExportOptions {
-  folderPath: string,
-  url: string,
+  folderPath: string
+  url: string
   data: string | null
   srcFilePath: string | null
 }

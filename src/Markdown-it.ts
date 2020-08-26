@@ -18,12 +18,20 @@ const note = (markdown, config) => {
   const notesClass = 'notes'
   // Remember old renderer, if overridden, or proxy to default renderer
   // tslint:disable-next-line: only-arrow-functions
-  const defaultRender = markdown.renderer.rules.paragraph_open || function (tokens, idx, options, env, self) {
-    return self.renderToken(tokens, idx, options)
-  }
+  const defaultRender =
+    markdown.renderer.rules.paragraph_open ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options)
+    }
 
   // tslint:disable-next-line: only-arrow-functions
-  markdown.renderer.rules.paragraph_open = function (tokens: any[], idx, options, env, self) {
+  markdown.renderer.rules.paragraph_open = function (
+    tokens: any[],
+    idx,
+    options,
+    env,
+    self
+  ) {
     const inlineToken = tokens[idx + 1] // text
     if (inlineToken.content.startsWith(notesSeparator)) {
       tokens[idx].tag = 'aside'
@@ -37,7 +45,9 @@ const note = (markdown, config) => {
 
       // remote "note:" from content
       tokens[idx + 1].content = inlineToken.content.replace(notesSeparator, '')
-      tokens[idx + 1].children[0].content = tokens[idx + 1].children[0].content.replace(notesSeparator, '')
+      tokens[idx + 1].children[0].content = tokens[
+        idx + 1
+      ].children[0].content.replace(notesSeparator, '')
 
       tokens[idx + 2].tag = 'aside'
     }
@@ -46,7 +56,7 @@ const note = (markdown, config) => {
   }
 }
 
-export default (config:Configuration) => {
+export default (config: Configuration) => {
   return md({
     html: true,
     linkify: true,

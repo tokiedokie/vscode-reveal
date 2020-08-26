@@ -7,8 +7,24 @@ import { LogLevel } from './Logger'
 
 export type Configuration = IDocumentOptions & IExtensionOptions
 
-type themes = 'black' | 'white' | 'league' | 'beige' | 'sky' | 'night' | 'serif' | 'simple' | 'solarized'
-type transitions = 'default' | 'none' | 'fade' | 'slide' | 'convex' | 'concave' | 'zoom'
+type themes =
+  | 'black'
+  | 'white'
+  | 'league'
+  | 'beige'
+  | 'sky'
+  | 'night'
+  | 'serif'
+  | 'simple'
+  | 'solarized'
+type transitions =
+  | 'default'
+  | 'none'
+  | 'fade'
+  | 'slide'
+  | 'convex'
+  | 'concave'
+  | 'zoom'
 export interface IDocumentOptions {
   controlsTutorial: boolean
   controlsLayout: 'edges' | 'bottom-right'

@@ -36,11 +36,14 @@ export default class Container {
   private _configuration: Configuration
   private webView: Webview | null
 
-  public onDidChangeTextEditorSelection (event: TextEditorSelectionChangeEvent) {
+  public onDidChangeTextEditorSelection(event: TextEditorSelectionChangeEvent) {
     if (this.editorContext === null) {
       return
     }
-    if (event.textEditor !== this.editorContext.editor || event.selections.length === 0) {
+    if (
+      event.textEditor !== this.editorContext.editor ||
+      event.selections.length === 0
+    ) {
       return
     }
 
@@ -54,9 +57,12 @@ export default class Container {
     this.slidesExplorer.update()
   }
 
-  public onDidChangeActiveTextEditor (editor: TextEditor | undefined): any {
+  public onDidChangeActiveTextEditor(editor: TextEditor | undefined): any {
     if (editor && editor.document.languageId === 'markdown') {
-      this.editorContext = new EditorContext(editor, getDocumentOptions(this.configuration))
+      this.editorContext = new EditorContext(
+        editor,
+        getDocumentOptions(this.configuration)
+      )
     }
     this.server.start()
     this.refreshWebView()
@@ -64,19 +70,19 @@ export default class Container {
     this.slidesExplorer.update()
   }
 
-  public onDidChangeTextDocument (e: TextDocumentChangeEvent) {
+  public onDidChangeTextDocument(e: TextDocumentChangeEvent) {
     console.log('onDidChangeTextDocument')
   }
 
-  public onDidSaveTextDocument (e: TextDocument) {
+  public onDidSaveTextDocument(e: TextDocument) {
     console.log('onDidSaveTextDocument')
   }
 
-  public onDidCloseTextDocument (e: TextDocument) {
+  public onDidCloseTextDocument(e: TextDocument) {
     console.log('onDidCloseTextDocument')
   }
 
-  public onDidChangeConfiguration (e: ConfigurationChangeEvent) {
+  public onDidChangeConfiguration(e: ConfigurationChangeEvent) {
     if (!e.affectsConfiguration(extensionId)) {
       return
     }
@@ -85,7 +91,11 @@ export default class Container {
     this.logger.LogLevel = this._configuration.logLevel
   }
 
-  public constructor (private readonly loadConfiguration: () => Configuration, private readonly logger: Logger, private readonly extensionContext: ExtensionContext) {
+  public constructor(
+    private readonly loadConfiguration: () => Configuration,
+    private readonly logger: Logger,
+    private readonly extensionContext: ExtensionContext
+  ) {
     this._configuration = this.loadConfiguration()
 
     this.editorContext = null
@@ -100,28 +110,36 @@ export default class Container {
       () => this.exportPath
     )
 
-    this.statusBarController = new StatusBarController(() => this.server.uri, () => this.slideCount)
+    this.statusBarController = new StatusBarController(
+      () => this.server.uri,
+      () => this.slideCount
+    )
     this.statusBarController.update()
 
     this.slidesExplorer = new SlideTreeProvider(() => this.slides)
     this.slidesExplorer.register()
   }
 
-  private get rootDir () {
+  private get rootDir() {
     if (this.editorContext) {
       return this.editorContext.dirname
     }
     return ''
   }
 
-  public get configuration () {
+  public get configuration() {
     return this.editorContext !== null && this.editorContext.hasfrontConfig
       ? // tslint:disable-next-line:no-object-literal-type-assertion
-      ({ ...this._configuration, ...this.editorContext.documentOptions } as Configuration)
+        ({
+          ...this._configuration,
+          ...this.editorContext.documentOptions
+        } as Configuration)
       : this._configuration
   }
 
-  public get isInExport () { return this.exportTimeout !== null }
+  public get isInExport() {
+    return this.exportTimeout !== null
+  }
 
   private exportTimeout: NodeJS.Timeout | null = null
   public export = async () => {
@@ -133,7 +151,9 @@ export default class Container {
     const promise = new Promise<string>((resolve) => {
       this.exportTimeout = setTimeout(() => resolve(this.exportPath), 5000)
     })
-    this.webView ? this.refreshWebView() : await commands.executeCommand(SHOW_REVEALJS)
+    this.webView
+      ? this.refreshWebView()
+      : await commands.executeCommand(SHOW_REVEALJS)
     http.get(this.getUri(false) + 'libs/reveal.js/plugin/notes/notes.html')
 
     return promise
@@ -144,15 +164,15 @@ export default class Container {
     // }
   }
 
-  get slides (): ISlide[] {
+  get slides(): ISlide[] {
     return this.editorContext === null ? [] : this.editorContext.slides
   }
 
-  get slideCount (): number {
+  get slideCount(): number {
     return this.editorContext === null ? 0 : this.editorContext.slideCount
   }
 
-  public getUri (withPosition = true): string | null {
+  public getUri(withPosition = true): string | null {
     if (!this.server.isListening || this.editorContext === null) {
       return null
     }
@@ -160,20 +180,26 @@ export default class Container {
     const serverUri = this.server.uri
     const slidepos = this.editorContext.position
 
-    return withPosition ? `${serverUri}#/${slidepos.horizontal}/${slidepos.vertical}/${Date.now()}` : `${serverUri}`
+    return withPosition
+      ? `${serverUri}#/${slidepos.horizontal}/${
+          slidepos.vertical
+        }/${Date.now()}`
+      : `${serverUri}`
   }
 
-  public get exportPath ():string {
+  public get exportPath(): string {
     return path.isAbsolute(this.configuration.exportHTMLPath)
       ? this.configuration.exportHTMLPath
       : path.join(this.rootDir, this.configuration.exportHTMLPath)
   }
 
-  public isMarkdownFile () {
-    return this.editorContext === null ? false : this.editorContext.isMarkdownFile
+  public isMarkdownFile() {
+    return this.editorContext === null
+      ? false
+      : this.editorContext.isMarkdownFile
   }
 
-  public goToSlide (topindex: number, verticalIndex: number) {
+  public goToSlide(topindex: number, verticalIndex: number) {
     if (this.editorContext !== null) {
       this.editorContext.goToSlide(topindex, verticalIndex)
     }
@@ -181,12 +207,12 @@ export default class Container {
     this.refreshWebView()
   }
 
-  public stopServer () {
+  public stopServer() {
     this.server.stop()
     this.statusBarController.update()
   }
 
-  public refreshWebView (view?: Webview) {
+  public refreshWebView(view?: Webview) {
     if (view) {
       this.webView = view
     }

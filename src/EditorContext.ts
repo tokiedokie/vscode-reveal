@@ -12,18 +12,21 @@ export interface ISlidePosition {
 
 export class EditorContext {
   // re-instance when change
-  public constructor (public editor: TextEditor, private readonly rawDocumentOptions: IDocumentOptions) {
+  public constructor(
+    public editor: TextEditor,
+    private readonly rawDocumentOptions: IDocumentOptions
+  ) {
     this.refresh()
   }
 
   private _slides: ISlide[]
   private _position: ISlidePosition = { horizontal: 0, vertical: 0 }
 
-  public refresh () {
+  public refresh() {
     this._slides = parseSlides(this.slideContent, this.documentOptions)
   }
 
-  public updatePosition (cursorPosition: Position) {
+  public updatePosition(cursorPosition: Position) {
     const start = new Position(0, 0)
     const range = new Range(start, cursorPosition)
 
@@ -34,67 +37,76 @@ export class EditorContext {
     const currentSlide = toPositionSlides[toPositionSlides.length - 1]
 
     this._position = currentSlide.verticalChildren
-      ? { horizontal: toPositionSlides.length - 1, vertical: currentSlide.verticalChildren.length }
+      ? {
+          horizontal: toPositionSlides.length - 1,
+          vertical: currentSlide.verticalChildren.length
+        }
       : { horizontal: toPositionSlides.length - 1, vertical: 0 }
   }
 
-  public getDocumentText (range?: Range): string {
+  public getDocumentText(range?: Range): string {
     return this.editor.document.getText(range)
   }
 
-  public get filename () {
+  public get filename() {
     return this.editor.document.fileName
   }
 
-  public get dirname () {
+  public get dirname() {
     return path.dirname(this.filename)
   }
 
-  get title (): string {
+  get title(): string {
     // TODO : add frontConf title property
     return `RevealJS : ${this.editor.document.fileName}`
   }
 
-  get slideContent (): string {
+  get slideContent(): string {
     return matter(this.getDocumentText()).content
   }
 
-  get frontMatterLineCount (): number {
+  get frontMatterLineCount(): number {
     return countLines(this.getDocumentText()) - countLines(this.slideContent)
   }
 
-  get hasfrontConfig (): boolean {
+  get hasfrontConfig(): boolean {
     return (matter.test(this.getDocumentText()) as any) as boolean // bad d.ts file
   }
 
-  get frontMatter (): any {
+  get frontMatter(): any {
     return matter(this.getDocumentText()).data
   }
 
-  get documentOptions (): IDocumentOptions {
+  get documentOptions(): IDocumentOptions {
     const front = this.frontMatter
     // tslint:disable-next-line:no-object-literal-type-assertion
     return { ...this.rawDocumentOptions, ...front } as IDocumentOptions
   }
 
-  get slideCount (): number {
+  get slideCount(): number {
     return this._slides.length
   }
 
-  get slides () {
+  get slides() {
     return this._slides
   }
 
-  get position () {
+  get position() {
     return this._position
   }
 
-  public get isMarkdownFile () {
+  public get isMarkdownFile() {
     return this.editor.document.languageId === 'markdown'
   }
 
-  public goToSlide (topindex: number, verticalIndex: number) {
-    const linesCount = countLinesToSlide(this.slides, topindex, verticalIndex, this.documentOptions) + this.frontMatterLineCount
+  public goToSlide(topindex: number, verticalIndex: number) {
+    const linesCount =
+      countLinesToSlide(
+        this.slides,
+        topindex,
+        verticalIndex,
+        this.documentOptions
+      ) + this.frontMatterLineCount
 
     const position = new Position(linesCount, 0)
     this.editor.selections = [new Selection(position, position)]

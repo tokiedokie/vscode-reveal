@@ -14,7 +14,10 @@ export const DEFAULT_CHROME_PATH = {
   LINUX: '/usr/bin/google-chrome',
   OSX: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
   WIN: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  WIN_LOCALAPPDATA: path.join(WIN_APPDATA, 'Google\\Chrome\\Application\\chrome.exe'),
+  WIN_LOCALAPPDATA: path.join(
+    WIN_APPDATA,
+    'Google\\Chrome\\Application\\chrome.exe'
+  ),
   WINx86: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
 
   CHROMIUM_BROWSER: '/usr/bin/chromium-browser'
@@ -26,12 +29,16 @@ export const enum Platform {
   Linux
 }
 
-export function getPlatform (): Platform {
+export function getPlatform(): Platform {
   const platform = os.platform()
-  return platform === 'darwin' ? Platform.OSX : platform === 'win32' ? Platform.Windows : Platform.Linux
+  return platform === 'darwin'
+    ? Platform.OSX
+    : platform === 'win32'
+    ? Platform.Windows
+    : Platform.Linux
 }
 
-export function existsSync (filepath: string): boolean {
+export function existsSync(filepath: string): boolean {
   try {
     fs.statSync(filepath)
     return true
@@ -41,7 +48,8 @@ export function existsSync (filepath: string): boolean {
   }
 }
 
-const getOSXChrome = () => (existsSync(DEFAULT_CHROME_PATH.OSX) ? DEFAULT_CHROME_PATH.OSX : null)
+const getOSXChrome = () =>
+  existsSync(DEFAULT_CHROME_PATH.OSX) ? DEFAULT_CHROME_PATH.OSX : null
 
 const getWindowsChrome = () => {
   if (existsSync(DEFAULT_CHROME_PATH.WINx86)) {
@@ -65,7 +73,7 @@ const getLinuxChrome = () => {
   return null
 }
 
-export function getChromePath (): string | null {
+export function getChromePath(): string | null {
   switch (getPlatform()) {
     case Platform.OSX:
       return getOSXChrome()
@@ -78,7 +86,11 @@ export function getChromePath (): string | null {
   }
 }
 
-export const openInBrowser = async (browserPath: string, url: string, headless = false) => {
+export const openInBrowser = async (
+  browserPath: string,
+  url: string,
+  headless = false
+) => {
   try {
     if (headless) {
       return await opn(url, { app: [browserPath, '--headless'] })
@@ -86,6 +98,8 @@ export const openInBrowser = async (browserPath: string, url: string, headless =
     return await opn(url, { app: browserPath })
   } catch (error) {
     await opn(url)
-    throw new Error('Can find Chrome on your computer, try with default browser...')
+    throw new Error(
+      'Can find Chrome on your computer, try with default browser...'
+    )
   }
 }

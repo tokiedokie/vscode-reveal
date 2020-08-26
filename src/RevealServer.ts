@@ -13,11 +13,11 @@ import { ISlide } from './ISlide'
 import { Logger } from './Logger'
 
 export class RevealServer {
-  private readonly app = new Koa();
+  private readonly app = new Koa()
   private server: http.Server | null
   private readonly host = 'localhost'
 
-  constructor (
+  constructor(
     private readonly logger: Logger,
     private readonly getRootDir: () => string,
     private readonly getSlides: () => ISlide[],
@@ -25,29 +25,31 @@ export class RevealServer {
     private readonly extensionPath: string,
     private readonly isInExport: () => boolean,
     private readonly getExportPath: () => string
-  ) { }
+  ) {}
 
-  public get isListening () {
+  public get isListening() {
     return this.server ? this.server.listening : false
   }
 
-  public stop () {
+  public stop() {
     if (this.isListening && this.server) {
       this.server.close()
     }
   }
 
-  public get uri () {
+  public get uri() {
     if (!this.isListening || this.server === null) {
       return null
     }
 
     const addr = this.server.address()
     // i don't know why addr can be null
-    return typeof addr === 'string' ? addr : `http://${this.host}:${addr ? addr.port : ''}/`
+    return typeof addr === 'string'
+      ? addr
+      : `http://${this.host}:${addr ? addr.port : ''}/`
   }
 
-  public start () {
+  public start() {
     try {
       if (!this.isListening && this.getRootDir()) {
         this.configure()
@@ -58,11 +60,15 @@ export class RevealServer {
     }
   }
 
-  private configure () {
+  private configure() {
     const app = this.app
 
     // LOG REQUEST
-    app.use(koalogger((str, args) => { this.logger.log(str) }))
+    app.use(
+      koalogger((str, args) => {
+        this.logger.log(str)
+      })
+    )
 
     // EXPORT
     app.use(this.exportMiddleware(exportHTML, () => this.isInExport()))
@@ -78,15 +84,19 @@ export class RevealServer {
 
     // MAIN FILE
     app.use(async (ctx, next) => {
-      if (ctx.path !== '/') { return next() }
+      if (ctx.path !== '/') {
+        return next()
+      }
 
       const markdown = markdownit(this.getConfiguration())
-      const htmlSlides = this.getSlides().map(s => (
-        {
-          ...s,
-          html: markdown.render(s.text),
-          children: s.verticalChildren.map(c => ({ ...c, html: markdown.render(c.text) }))
+      const htmlSlides = this.getSlides().map((s) => ({
+        ...s,
+        html: markdown.render(s.text),
+        children: s.verticalChildren.map((c) => ({
+          ...c,
+          html: markdown.render(c.text)
         }))
+      }))
       ctx.state = { slides: htmlSlides, ...this.getConfiguration() }
       await ctx.render('reveal')
     })
@@ -102,21 +112,35 @@ export class RevealServer {
     }
 
     // ERROR HANDLER
-    app.on('error', err => {
+    app.on('error', (err) => {
       this.logger.error(err)
     })
 
     this.server = app.listen()
   }
 
-  private readonly exportMiddleware = (exportfn: (ExportOptions)=>Promise<void>, isInExport) => {
+  private readonly exportMiddleware = (
+    exportfn: (ExportOptions) => Promise<void>,
+    isInExport
+  ) => {
     return async (ctx: Koa.Context, next) => {
       await next()
       if (isInExport()) {
         const exportPath = this.getExportPath()
-        const opts:IExportOptions = typeof ctx.body === 'string'
-          ? { folderPath: exportPath, url: ctx.originalUrl.split('?')[0], srcFilePath: null, data: ctx.body }
-          : { folderPath: exportPath, url: ctx.originalUrl.split('?')[0], srcFilePath: ctx.body.path, data: null }
+        const opts: IExportOptions =
+          typeof ctx.body === 'string'
+            ? {
+                folderPath: exportPath,
+                url: ctx.originalUrl.split('?')[0],
+                srcFilePath: null,
+                data: ctx.body
+              }
+            : {
+                folderPath: exportPath,
+                url: ctx.originalUrl.split('?')[0],
+                srcFilePath: ctx.body.path,
+                data: null
+              }
 
         await exportfn(opts)
       }
