@@ -26,12 +26,12 @@ export const enum Platform {
   Linux
 }
 
-export function getPlatform(): Platform {
+export function getPlatform (): Platform {
   const platform = os.platform()
   return platform === 'darwin' ? Platform.OSX : platform === 'win32' ? Platform.Windows : Platform.Linux
 }
 
-export function existsSync(filepath: string): boolean {
+export function existsSync (filepath: string): boolean {
   try {
     fs.statSync(filepath)
     return true
@@ -65,7 +65,7 @@ const getLinuxChrome = () => {
   return null
 }
 
-export function getChromePath(): string | null {
+export function getChromePath (): string | null {
   switch (getPlatform()) {
     case Platform.OSX:
       return getOSXChrome()

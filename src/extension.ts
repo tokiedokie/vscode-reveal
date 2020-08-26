@@ -13,7 +13,7 @@ import { extensionId } from './constants'
 import Container from './Container'
 import { Logger } from './Logger'
 
-export function activate(context: ExtensionContext) {
+export function activate (context: ExtensionContext) {
   const registerCommand = (command: string, callback: (...args: any[]) => any, thisArg?: any) => {
     const disposable = commands.registerCommand(command, callback, thisArg)
     context.subscriptions.push(disposable)
@@ -60,6 +60,6 @@ export function activate(context: ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {
+export function deactivate () {
   console.log('"vscode-reveal" is now deactivated')
 }
