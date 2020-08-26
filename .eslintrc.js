@@ -4,7 +4,8 @@ module.exports = {
     es2020: true
   },
   extends: [
-    'standard'
+    'standard',
+    'prettier'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -12,8 +13,16 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'prettier'
   ],
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        semi: false,
+      }
+    ]
   }
 }
