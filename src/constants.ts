@@ -1,1 +1,1 @@
-export const extensionId = "revealjs"
+export const extensionId = 'revealjs'

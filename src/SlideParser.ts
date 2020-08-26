@@ -1,17 +1,17 @@
-import { IDocumentOptions } from './Configuration';
-import { ISlide } from './ISlide';
+import { IDocumentOptions } from './Configuration'
+import { ISlide } from './ISlide'
 
 export const countLines = text => {
-  return text.split("\n").length
+  return text.split('\n').length
 }
 
 const trimFirstLastEmptyLine = (s) => {
   let content = s
-  content = content.indexOf("\n") === 0 ? content.substr(1) : content
-  content = content.indexOf("\r\n") === 0 ? content.substr(2) : content
+  content = content.indexOf('\n') === 0 ? content.substr(1) : content
+  content = content.indexOf('\r\n') === 0 ? content.substr(2) : content
 
-  content = content.lastIndexOf("\n") === content.length - 1 ? content.substr(0, content.length - 1) : content
-  content = content.lastIndexOf("\r\n") === content.length - 2 ? content.substr(0, content.length - 2) : content
+  content = content.lastIndexOf('\n') === content.length - 1 ? content.substr(0, content.length - 1) : content
+  content = content.lastIndexOf('\r\n') === content.length - 2 ? content.substr(0, content.length - 2) : content
   return content
 }
 
@@ -20,9 +20,7 @@ export const parseSlides = (slideContent: string, slidifyOptions: IDocumentOptio
   const slides = slideContent.split(regex)
   // TODO : do dirty remove first or last line !
   return slides.map((s, i) => {
-
     return parseSlide(trimFirstLastEmptyLine(s), i, slidifyOptions)
-
   })
 }
 
@@ -33,7 +31,6 @@ export const countLinesToSlide = (slides: ISlide[], horizontalIndex: number, ver
   const separatorHeight = lineInSeparator(slidifyOptions.separator)
   const verticalSeparatorHeight = lineInSeparator(slidifyOptions.verticalSeparator)
   return slides.slice(0, stopSlideIndex).reduce((lines, slide) => {
-
     const count = lines + countLines(slide.text) + separatorHeight
 
     return slide.verticalChildren
@@ -69,13 +66,13 @@ const getVerticalSlides = (slideContent: string, documentOption: IDocumentOption
 
   return slides.map((s, i) => {
     const content = trimFirstLastEmptyLine(s)
-    return { 
-      title: findTitle(content), 
-      index: i, 
-      text: content, 
-      verticalChildren: [], 
-      attributes: findSlideAttributes(content) 
-    
+    return {
+      title: findTitle(content),
+      index: i,
+      text: content,
+      verticalChildren: [],
+      attributes: findSlideAttributes(content)
+
     }
   })
 }
@@ -83,7 +80,7 @@ const getVerticalSlides = (slideContent: string, documentOption: IDocumentOption
 const findSlideAttributes = (text: string) => {
   const regex = /<!--[ ]*.slide:(.*)[ ]*-->/gm
   const m = regex.exec(text)
-  return m === null 
+  return m === null
     ? ''
     : m[1].trim()
 }
@@ -99,5 +96,3 @@ const findTitle = (text: string) => {
     .split('\n')
   return lines[0].trim()
 }
-
-

@@ -138,7 +138,7 @@ export const defaultConfiguration: Configuration = {
 
   slideExplorerEnabled: true,
   browserPath: null,
-  exportHTMLPath: `./export`,
+  exportHTMLPath: './export',
   openFilemanagerAfterHTMLExport: true,
   logLevel: LogLevel.Verbose,
 

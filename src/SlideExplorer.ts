@@ -8,21 +8,21 @@ export class SlideTreeProvider implements vscode.TreeDataProvider<SlideNode> {
 
   public readonly onDidChangeTreeData: vscode.Event<SlideNode | null> = this._onDidChangeTreeData.event
 
-  constructor(private readonly getSlide: () => ISlide[]) {}
+  constructor (private readonly getSlide: () => ISlide[]) {}
 
-  public update() {
+  public update () {
     this._onDidChangeTreeData.fire()
   }
 
-  public register() {
+  public register () {
     return vscode.window.registerTreeDataProvider('slidesExplorer', this)
   }
 
-  public getTreeItem(element: SlideNode): vscode.TreeItem | Thenable<vscode.TreeItem> {
+  public getTreeItem (element: SlideNode): vscode.TreeItem | Thenable<vscode.TreeItem> {
     return element
   }
 
-  public getChildren(element?: SlideNode): vscode.ProviderResult<SlideNode[]> {
+  public getChildren (element?: SlideNode): vscode.ProviderResult<SlideNode[]> {
     const slides = this.getSlide()
     return new Promise(resolve => {
       if (element && element.slide.verticalChildren) {
@@ -33,7 +33,7 @@ export class SlideTreeProvider implements vscode.TreeDataProvider<SlideNode> {
     })
   }
 
-  private mapSlides(slides: ISlide[], parentIndex?: number) {
+  private mapSlides (slides: ISlide[], parentIndex?: number) {
     return slides.map(
       (s, i) =>
         new SlideNode(
@@ -52,7 +52,7 @@ export class SlideTreeProvider implements vscode.TreeDataProvider<SlideNode> {
 }
 
 class SlideNode extends vscode.TreeItem {
-  get iconName() {
+  get iconName () {
     return this.isVertical ? 'slide-orange.svg' : 'slide-blue.svg'
   }
 
@@ -60,7 +60,8 @@ class SlideNode extends vscode.TreeItem {
     dark: path.join(__filename, '..', '..', '..', 'resources', this.iconName),
     light: path.join(__filename, '..', '..', '..', 'resources', this.iconName)
   }
-  constructor(
+
+  constructor (
     public readonly slide: ISlide,
     public readonly isVertical: boolean,
     public readonly label: string,
