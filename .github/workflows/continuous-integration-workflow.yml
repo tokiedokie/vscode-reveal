@@ -20,13 +20,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: npm install
+      - name: yarn install
         run:
-          npm install
+          yarn install
 
       - name: build
         run:
-          npm run vscode:prepublish
+          yarn run vscode:prepublish
           
 
       #- name: test
