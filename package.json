@@ -390,6 +390,7 @@
     "open": "^7.0.4",
     "opn": "^6.0.0",
     "os": "^0.1.1",
+    "remove": "^0.1.5",
     "websocket-extensions": "^0.1.4"
   },
   "devDependencies": {
@@ -409,9 +410,11 @@
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
     "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^26.0.1",
@@ -420,6 +423,8 @@
     "mocha-junit-reporter": "^2.0.0",
     "mocha-multi-reporters": "^1.1.7",
     "nyc": "^15.0.1",
+    "prettier": "^2.1.0",
+    "prettier-eslint": "^11.0.0",
     "request": "^2.88.2",
     "sonarqube-scanner": "^2.6.0",
     "source-map-support": "^0.5.19",
