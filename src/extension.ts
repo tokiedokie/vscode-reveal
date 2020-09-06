@@ -11,28 +11,28 @@ import {
   showRevealJSInBrowser
 } from './commands/showRevealJSInBrowser'
 import { STOP_REVEALJS_SERVER } from './commands/stopRevealJSServer'
-import { loadConfiguration } from './Configuration'
+import { loadConfiguration, Configuration } from './Configuration'
 import { extensionId } from './constants'
 import Container from './Container'
 import { Logger } from './Logger'
 
-export function activate(context: ExtensionContext) {
+export function activate(context: ExtensionContext): void {
   const registerCommand = (
     command: string,
     callback: (...args: any[]) => any,
     thisArg?: any
-  ) => {
+  ): void => {
     const disposable = commands.registerCommand(command, callback, thisArg)
     context.subscriptions.push(disposable)
   }
 
-  const loadConfigurationFn = () =>
+  const loadConfigurationFn = (): Configuration =>
     loadConfiguration(() => workspace.getConfiguration(extensionId) as any)
   const startingConfig = loadConfigurationFn()
 
   const outputChannel = window.createOutputChannel(extensionId)
 
-  const appendLine = (value: string) => outputChannel.appendLine(value)
+  const appendLine = (value: string): void => outputChannel.appendLine(value)
 
   const logger = new Logger(startingConfig.logLevel, appendLine)
 
@@ -40,7 +40,7 @@ export function activate(context: ExtensionContext) {
 
   container.onDidChangeActiveTextEditor(window.activeTextEditor)
 
-  const getBrowser = () => {
+  const getBrowser = (): string | null => {
     const fromConf = container.configuration.browserPath
     return fromConf === null ? getChromePath() : fromConf
   }
@@ -93,6 +93,6 @@ export function activate(context: ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {
+export function deactivate(): void {
   console.log('"vscode-reveal" is now deactivated')
 }

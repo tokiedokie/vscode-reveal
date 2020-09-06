@@ -27,17 +27,17 @@ export class RevealServer {
     private readonly getExportPath: () => string
   ) {}
 
-  public get isListening() {
+  public get isListening(): boolean {
     return this.server ? this.server.listening : false
   }
 
-  public stop() {
+  public stop(): void {
     if (this.isListening && this.server) {
       this.server.close()
     }
   }
 
-  public get uri() {
+  public get uri(): string | null {
     if (!this.isListening || this.server === null) {
       return null
     }
@@ -49,7 +49,7 @@ export class RevealServer {
       : `http://${this.host}:${addr ? addr.port : ''}/`
   }
 
-  public start() {
+  public start(): void {
     try {
       if (!this.isListening && this.getRootDir()) {
         this.configure()
@@ -60,7 +60,7 @@ export class RevealServer {
     }
   }
 
-  private configure() {
+  private configure(): void {
     const app = this.app
 
     // LOG REQUEST
