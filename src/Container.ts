@@ -64,7 +64,6 @@ export default class Container {
         getDocumentOptions(this.configuration)
       )
     }
-    this.server.start()
     this.refreshWebView()
     this.statusBarController.update()
     this.slidesExplorer.update()
@@ -205,6 +204,11 @@ export default class Container {
     }
 
     this.refreshWebView()
+  }
+
+  public startServer() {
+    this.server.start()
+    this.statusBarController.update()
   }
 
   public stopServer() {
