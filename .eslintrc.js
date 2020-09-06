@@ -4,18 +4,15 @@ module.exports = {
     es2020: true
   },
   extends: [
-    'standard',
+    'standard-with-typescript',
+    'plugin:@typescript-eslint/recommended',
     'prettier'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 12,
-    sourceType: 'module'
+    'project': './tsconfig.json'
   },
-  plugins: [
-    '@typescript-eslint',
-    'prettier'
-  ],
+  plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     'prettier/prettier': [
       'error',
