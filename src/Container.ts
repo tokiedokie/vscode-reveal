@@ -36,7 +36,9 @@ export default class Container {
   private _configuration: Configuration
   private webView: Webview | null
 
-  public onDidChangeTextEditorSelection(event: TextEditorSelectionChangeEvent): void {
+  public onDidChangeTextEditorSelection(
+    event: TextEditorSelectionChangeEvent
+  ): void {
     if (this.editorContext === null) {
       return
     }
@@ -154,7 +156,7 @@ export default class Container {
       ? this.refreshWebView()
       : await commands.executeCommand(SHOW_REVEALJS)
     http.get(`${this.getUri(false)}libs/reveal.js/plugin/notes/notes.html`)
-    //http.get(this.getUri(false) + 'libs/reveal.js/plugin/notes/notes.html')
+    // http.get(this.getUri(false) + 'libs/reveal.js/plugin/notes/notes.html')
 
     return promise
     //   } catch (e) {
