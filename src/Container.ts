@@ -172,6 +172,8 @@ export default class Container {
   }
 
   public getUri(withPosition = true): string | null {
+    this.server.start()
+
     if (!this.server.isListening || this.editorContext === null) {
       return null
     }
@@ -204,11 +206,6 @@ export default class Container {
     }
 
     this.refreshWebView()
-  }
-
-  public startServer() {
-    this.server.start()
-    this.statusBarController.update()
   }
 
   public stopServer() {
