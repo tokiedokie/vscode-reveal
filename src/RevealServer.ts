@@ -85,7 +85,7 @@ export class RevealServer {
     // MAIN FILE
     app.use(async (ctx, next) => {
       if (ctx.path !== '/') {
-        return next()
+        return await next()
       }
 
       const markdown = markdownit(this.getConfiguration())
