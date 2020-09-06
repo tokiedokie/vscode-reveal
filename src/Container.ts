@@ -36,7 +36,7 @@ export default class Container {
   private _configuration: Configuration
   private webView: Webview | null
 
-  public onDidChangeTextEditorSelection(event: TextEditorSelectionChangeEvent) {
+  public onDidChangeTextEditorSelection(event: TextEditorSelectionChangeEvent): void {
     if (this.editorContext === null) {
       return
     }
@@ -69,19 +69,19 @@ export default class Container {
     this.slidesExplorer.update()
   }
 
-  public onDidChangeTextDocument(e: TextDocumentChangeEvent) {
+  public onDidChangeTextDocument(_e: TextDocumentChangeEvent): void {
     console.log('onDidChangeTextDocument')
   }
 
-  public onDidSaveTextDocument(e: TextDocument) {
+  public onDidSaveTextDocument(_e: TextDocument): void {
     console.log('onDidSaveTextDocument')
   }
 
-  public onDidCloseTextDocument(e: TextDocument) {
+  public onDidCloseTextDocument(_e: TextDocument): void {
     console.log('onDidCloseTextDocument')
   }
 
-  public onDidChangeConfiguration(e: ConfigurationChangeEvent) {
+  public onDidChangeConfiguration(e: ConfigurationChangeEvent): void {
     if (!e.affectsConfiguration(extensionId)) {
       return
     }
@@ -119,14 +119,14 @@ export default class Container {
     this.slidesExplorer.register()
   }
 
-  private get rootDir() {
+  private get rootDir(): string {
     if (this.editorContext) {
       return this.editorContext.dirname
     }
     return ''
   }
 
-  public get configuration() {
+  public get configuration(): Configuration {
     return this.editorContext !== null && this.editorContext.hasfrontConfig
       ? // tslint:disable-next-line:no-object-literal-type-assertion
         ({
@@ -136,12 +136,12 @@ export default class Container {
       : this._configuration
   }
 
-  public get isInExport() {
+  public get isInExport(): boolean {
     return this.exportTimeout !== null
   }
 
   private exportTimeout: NodeJS.Timeout | null = null
-  public export = async () => {
+  public export = async (): Promise<string> => {
     if (this.exportTimeout !== null) {
       clearTimeout(this.exportTimeout)
     }
@@ -153,7 +153,8 @@ export default class Container {
     this.webView
       ? this.refreshWebView()
       : await commands.executeCommand(SHOW_REVEALJS)
-    http.get(this.getUri(false) + 'libs/reveal.js/plugin/notes/notes.html')
+    http.get(`${this.getUri(false)}libs/reveal.js/plugin/notes/notes.html`)
+    //http.get(this.getUri(false) + 'libs/reveal.js/plugin/notes/notes.html')
 
     return promise
     //   } catch (e) {
@@ -194,13 +195,13 @@ export default class Container {
       : path.join(this.rootDir, this.configuration.exportHTMLPath)
   }
 
-  public isMarkdownFile() {
+  public isMarkdownFile(): boolean {
     return this.editorContext === null
       ? false
       : this.editorContext.isMarkdownFile
   }
 
-  public goToSlide(topindex: number, verticalIndex: number) {
+  public goToSlide(topindex: number, verticalIndex: number): void {
     if (this.editorContext !== null) {
       this.editorContext.goToSlide(topindex, verticalIndex)
     }
@@ -208,12 +209,12 @@ export default class Container {
     this.refreshWebView()
   }
 
-  public stopServer() {
+  public stopServer(): void {
     this.server.stop()
     this.statusBarController.update()
   }
 
-  public refreshWebView(view?: Webview) {
+  public refreshWebView(view?: Webview): void {
     if (view) {
       this.webView = view
     }
