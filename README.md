@@ -35,7 +35,7 @@ Since Reveal.js use marked to parse the markdown string you can use this in your
 - GFM tables
 
 If you need a sample file you can get it here:
-https://raw.githubusercontent.com/tokiedokie/reveal-markdown/master/sample.md
+https://raw.githubusercontent.com/tokiedokie/reveal-markdown/master/samples/sample.md
 
 
 ## <a id="statusbar"></a> Status bar

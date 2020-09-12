@@ -11,9 +11,7 @@ src/**
 .gitignore
 tsconfig.json
 vsc-extension-quickstart.md
-sample.md
-sample.pdf
-sample2.md
+samples/**
 coverconfig.json
 azure-pipelines.yml
 azure-pipelines-steps.yml
@@ -23,8 +21,7 @@ images/**
 CHANGELOG.md
 config.json
 custom.css
-default-thumbnail.jpg
-image-placeholder.png
+resources/default-thumbnail.jpg
+resources/image-placeholder.png
 junit.xml
-math.md
 tslint.json
