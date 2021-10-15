@@ -41,6 +41,10 @@ const config = {
       }]
     }]
   },
+  // https://stackoverflow.com/a/67820502/1168342
+  node: {
+    __filename: false
+  }
 }
 
 module.exports = config;
