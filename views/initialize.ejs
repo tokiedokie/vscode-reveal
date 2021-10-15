@@ -11,6 +11,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <script src="libs/reveal.js-plugins/chart/plugin.js"></script>
 
+<% if (enableChalkboard) { %>
+    <script src="libs/reveal.js-plugins/chalkboard/plugin.js"></script>
+    <script src="libs/reveal.js-plugins/customcontrols/customcontrols.js"></script>
+<% } %>
+
 <% if (enableMenu) { %>
     <script src="libs/other-plugins/menu/menu.js"></script>
 <% } %>
@@ -58,6 +63,9 @@
         plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath, RevealEmbedTweet, RevealChart
         <% if (enableMenu) { %>
            , RevealMenu
+        <% } %>
+        <% if (enableChalkboard) { %>
+            , RevealChalkboard //, RevealCustomControls
         <% } %>
         ],
         

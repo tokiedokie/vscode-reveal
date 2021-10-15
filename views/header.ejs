@@ -16,6 +16,10 @@
   <% if (theme) { %>
   <link rel="stylesheet" href="libs/reveal.js/dist/theme/<%=theme%>.css" id="theme">
   <%}%>
+  <% if (enableChalkboard) { %>
+    <link rel="stylesheet" href="libs/reveal.js-plugins/chalkboard/style.css">
+    <link rel="stylesheet" href="libs/reveal.js-plugins/customcontrols/style.css">
+  <% } %>
   
   <!--
   <link rel="stylesheet" href="libs/reveal.js/plugin/title-footer/title-footer-mod.css" />
