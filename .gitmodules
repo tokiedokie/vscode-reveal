@@ -2,10 +2,10 @@
 	path = libs/reveal.js
 	url = git@github.com:hakimel/reveal.js.git
 
-[submodule "libs/reveal.js-plugins/menu"]
-	path = libs/reveal.js-plugins/menu
+[submodule "libs/other-plugins/menu"]
+	path = libs/other-plugins/menu
 	url = git@github.com:denehyg/reveal.js-menu.git
 
-[submodule "libs/reveal.js-plugins/mermaid"]
-	path = libs/reveal.js-plugins/mermaid
+[submodule "libs/other-plugins/mermaid"]
+	path = libs/other-plugins/mermaid
 	url = git@github.com:mermaid-js/mermaid.git
