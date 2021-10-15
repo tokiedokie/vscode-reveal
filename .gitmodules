@@ -2,6 +2,10 @@
 	path = libs/reveal.js
 	url = git@github.com:hakimel/reveal.js.git
 
+[submodule "libs/reveal.js-plugins"]
+	path = libs/reveal.js-plugins
+	url = git@github.com:rajgoel/reveal.js-plugins/
+
 [submodule "libs/other-plugins/menu"]
 	path = libs/other-plugins/menu
 	url = git@github.com:denehyg/reveal.js-menu.git

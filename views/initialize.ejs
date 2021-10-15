@@ -7,6 +7,8 @@
 <script src="libs/reveal.js/plugin/markdown/markdown.js"></script>
 <script src="libs/reveal.js/plugin/highlight/highlight.js"></script>
 <script src="libs/reveal.js/plugin/math/math.js"></script>
+<script src="libs/reveal.js-plugins/embed-tweet/plugin.js"></script>
+
 <% if (enableMenu) { %>
     <script src="libs/other-plugins/menu/menu.js"></script>
 <% } %>
@@ -51,7 +53,7 @@
         parallaxBackgroundVertical: <%= parallaxBackgroundVertical %>,
         display: '<%= display%>',
 
-        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath, RevealEmbedTweet
         <% if (enableMenu) { %>
            , RevealMenu
         <% } %>
