@@ -8,6 +8,8 @@
 <script src="libs/reveal.js/plugin/highlight/highlight.js"></script>
 <script src="libs/reveal.js/plugin/math/math.js"></script>
 <script src="libs/reveal.js-plugins/embed-tweet/plugin.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="libs/reveal.js-plugins/chart/plugin.js"></script>
 
 <% if (enableMenu) { %>
     <script src="libs/other-plugins/menu/menu.js"></script>
@@ -53,7 +55,7 @@
         parallaxBackgroundVertical: <%= parallaxBackgroundVertical %>,
         display: '<%= display%>',
 
-        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath, RevealEmbedTweet
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath, RevealEmbedTweet, RevealChart
         <% if (enableMenu) { %>
            , RevealMenu
         <% } %>
@@ -202,7 +204,20 @@
         },
         dependencies: [
              { src: '//cdn.jsdelivr.net/npm/reveal-plantuml' },
-          ]        
+          ],
+          chart: {
+		defaults: {
+			color: 'lightgray', // color of labels
+			scale: {
+				beginAtZero: true,
+				ticks: { stepSize: 1 },
+				grid: { color: "lightgray" } , // color of grid lines
+			},
+		},
+		line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
+		bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+		pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+	},
         /*
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
