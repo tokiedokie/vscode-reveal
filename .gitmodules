@@ -13,3 +13,7 @@
 [submodule "libs/other-plugins/mermaid"]
 	path = libs/other-plugins/mermaid
 	url = git@github.com:mermaid-js/mermaid.git
+
+[submodule "libs/other-plugins/title-footer"]
+	path = libs/other-plugins/title-footer
+	url = git@github.com:e-gor/Reveal.js-Title-Footer.git

@@ -72,6 +72,17 @@
         <% } %>
         ],
 
+        dependencies: [
+            { src: '//cdn.jsdelivr.net/npm/reveal-plantuml' },
+            <% if (enableTitleFooter) { %>
+                { src: 'libs/other-plugins/title-footer/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(
+                    <% if (title) { %>
+                        '<%= title %>'
+                    <% } %>
+                ); } },
+            <% } %>
+        ],
+
         customcontrols: {
   		controls: [
   			{ icon: '<i class="fa fa-pen-square"></i>',
@@ -84,7 +95,6 @@
   			}
   		]
     },
-        
         math: {
             mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
             config: 'TeX-AMS_HTML-full',
@@ -226,10 +236,7 @@
         plantuml: {
             serverPath: 'https://www.plantuml.com/plantuml/svg/'
         },
-        dependencies: [
-             { src: '//cdn.jsdelivr.net/npm/reveal-plantuml' },
-          ],
-          chart: {
+        chart: {
 		defaults: {
 			color: 'lightgray', // color of labels
 			scale: {
@@ -241,76 +248,7 @@
 		line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
 		bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
 		pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
-	},
-        /*
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-            <% if (enableSearch) { %>
-            { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
-            <% } %>
-
-            <% if (enableChalkboard) { %>
-            { src: 'libs/other-plugins/3.8.0/plugin/chalkboard/chalkboard.js' },
-            <% } %>    
-
-            <% if (enableMenu) { %>
-            { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
-            <% } %>
-
-            <% if (enableTitleFooter) { %>
-            { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
-            <% } %>
-            {
-                src: 'libs/highlight.js/9.15.10/reveal-code-focus-1.0.0-mod.js',
-                async: true,
-                callback: function () {
-                    RevealCodeFocus();
-                }
-            },
-            // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
-        ],
-        keyboard: {
-            67: function () { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
-            66: function () { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
-            46: function () { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
-            8: function () { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-            68: function () { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
-        },
-        chart: {
-            defaults: {
-                global: {
-                    title: { fontColor: "#FFF" },
-                    legend: {
-                        position: "bottom",
-                            labels: { fontColor: "#FFF" },
-                    },
-                    tooltips: {
-                        labels: { fontColor: "#FFF" },
-                    },
-                },
-                scale: {
-                    scaleLabel: { fontColor: "#FFF" },
-                    gridLines: { color: "#FFF", zeroLineColor: "#FFF" },
-                    ticks: { fontColor: "#FFF" },
-                }
-            },
-            line: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"], "borderDash": [[5, 10], [0, 0]] },
-            bar: { backgroundColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
-            pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
-            radar: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
-        },
-        anything: [ 
-            {
-                className: "mermaid"
-            },
-            // ...
-        ],
-        chalkboard: {
-            toggleChalkboardButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
-            toggleNotesButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
-
-        }
-        */
+	}
     });
 
 </script>
