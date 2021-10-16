@@ -13,7 +13,7 @@
 
 <% if (enableChalkboard) { %>
     <script src="libs/reveal.js-plugins/chalkboard/plugin.js"></script>
-    <script src="libs/reveal.js-plugins/customcontrols/customcontrols.js"></script>
+    <script src="libs/reveal.js-plugins/customcontrols/plugin.js"></script>
 <% } %>
 
 <% if (enableMenu) { %>
@@ -65,9 +65,22 @@
            , RevealMenu
         <% } %>
         <% if (enableChalkboard) { %>
-            , RevealChalkboard //, RevealCustomControls
+            , RevealChalkboard, RevealCustomControls
         <% } %>
         ],
+
+        customcontrols: {
+  		controls: [
+  			{ icon: '<i class="fa fa-pen-square"></i>',
+  			  title: 'Toggle chalkboard (B)',
+  			  action: 'RevealChalkboard.toggleChalkboard();'
+  			},
+  			{ icon: '<i class="fa fa-pen"></i>',
+  			  title: 'Toggle notes canvas (C)',
+  			  action: 'RevealChalkboard.toggleNotesCanvas();'
+  			}
+  		]
+    },
         
         math: {
             mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
