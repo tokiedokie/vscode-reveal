@@ -22,7 +22,7 @@
     "markdown",
     "reveal js",
     "slide",
-    "presenttion"
+    "presentation"
   ],
   "activationEvents": [
     "onLanguage:markdown",
