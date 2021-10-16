@@ -274,7 +274,7 @@
         {
           "id": "slides-explorer",
           "title": "VSCode Reveal",
-          "icon": "resources/slide-gray.svg"
+          "icon": "resources/slide-gray-24x24-center.svg"
         }
       ]
     },
