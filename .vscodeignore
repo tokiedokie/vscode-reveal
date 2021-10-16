@@ -25,3 +25,22 @@ resources/default-thumbnail.jpg
 resources/image-placeholder.png
 junit.xml
 tslint.json
+# ignore stuff not used in submodules
+libs/reveal.js/*
+libs/reveal.js/.github
+libs/reveal.js/examples
+libs/reveal.js/test
+
+libs/other-plugins/mermaid/*
+libs/other-plugins/mermaid/*/
+!libs/other-plugins/mermaid/dist/mermaid.min.js
+
+# don't exclude the fontawesome dist
+libs/other-plugins/menu/*
+!libs/other-plugins/menu/menu.js
+!libs/other-plugins/menu/menu.css
+
+libs/other-plugins/title-footer/demo
+libs/other-plugins/title-footer/*
+!libs/other-plugins/title-footer/plugin/title-footer/*
+
