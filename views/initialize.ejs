@@ -10,6 +10,7 @@
 <script src="libs/reveal.js-plugins/embed-tweet/plugin.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <script src="libs/reveal.js-plugins/chart/plugin.js"></script>
+<script src="libs/reveal.js-plugins/fullscreen/plugin.js"></script>
 
 <% if (enableChalkboard) { %>
     <script src="libs/reveal.js-plugins/chalkboard/plugin.js"></script>
@@ -60,7 +61,9 @@
         parallaxBackgroundVertical: <%= parallaxBackgroundVertical %>,
         display: '<%= display%>',
 
-        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath, RevealEmbedTweet, RevealChart
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown,
+                  RevealHighlight, RevealMath, RevealEmbedTweet, RevealChart,
+                  RevealFullscreen
         <% if (enableMenu) { %>
            , RevealMenu
         <% } %>
