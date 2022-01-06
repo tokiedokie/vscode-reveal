@@ -2,7 +2,7 @@
   "name": "reveal-markdown",
   "displayName": "reveal-markdown",
   "description": "Show markdown as revealJs presentation",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "publisher": "tokiedokie",
   "author": "Vincent Bourdon",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "markdown",
     "reveal js",
     "slide",
-    "presenttion"
+    "presentation"
   ],
   "activationEvents": [
     "onLanguage:markdown",
@@ -274,7 +274,7 @@
         {
           "id": "slides-explorer",
           "title": "VSCode Reveal",
-          "icon": "resources/slide-gray.svg"
+          "icon": "resources/slide-gray-24x24-center.svg"
         }
       ]
     },

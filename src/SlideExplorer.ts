@@ -67,9 +67,9 @@ class SlideNode extends vscode.TreeItem {
     return this.isVertical ? 'slide-orange.svg' : 'slide-blue.svg'
   }
 
-  public iconPath = {
-    dark: path.join(__filename, '..', '..', '..', 'resources', this.iconName),
-    light: path.join(__filename, '..', '..', '..', 'resources', this.iconName)
+  public readonly iconPath = {
+    light: path.join(__filename, '..', '..', 'resources', this.iconName),
+    dark: path.join(__filename, '..', '..', 'resources', this.iconName)
   }
 
   constructor(
@@ -79,6 +79,9 @@ class SlideNode extends vscode.TreeItem {
     public readonly collapsibleState: vscode.TreeItemCollapsibleState,
     public readonly command?: vscode.Command
   ) {
-    super(label, collapsibleState)
+    super(label, collapsibleState);
+    // console.log(`filename: ${path.join(__filename, '..', 'resources')}, ${path.join(__filename, '..', '..', 'resources')}, ${path.join(__filename, '..', '..', '..', 'resources')}, ${path.join(__filename, '..', '..', '..', '..', 'resources')}`);
+    // this.tooltip = `${this.label}-${this.version}`;
+    // this.description = this.version;
   }
 }

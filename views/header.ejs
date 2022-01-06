@@ -16,20 +16,21 @@
   <% if (theme) { %>
   <link rel="stylesheet" href="libs/reveal.js/dist/theme/<%=theme%>.css" id="theme">
   <%}%>
-  
-  <!--
-  <link rel="stylesheet" href="libs/reveal.js/plugin/title-footer/title-footer-mod.css" />
-  -->
+  <% if (enableChalkboard) { %>
+    <link rel="stylesheet" href="libs/reveal.js-plugins/chalkboard/style.css">
+    <link rel="stylesheet" href="libs/reveal.js-plugins/customcontrols/style.css">
+  <% } %>
+  <% if (enableTitleFooter) { %>
+    <link rel="stylesheet" href="libs/other-plugins/title-footer/plugin/title-footer/title-footer.css" />
+  <% } %>
 
-  <!-- MERMAID-->
-  <!--
-  <script src="libs/reveal.js/plugin/mermaid/mermaid.min.js"></script>
+  <!-- MERMAID -->
+  <script src="libs/other-plugins/mermaid/dist/mermaid.min.js"></script>
   <style>
   .mermaid {
     font-size: 0.5em;
   }
   </style>
-  -->
   
   <style>
     [class*=task-list-item] {
@@ -106,15 +107,6 @@
   <link rel="stylesheet" href="<%=customTheme%>.css">
   <%}%>
   
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/dist/print/pdf.css' : 'libs/reveal.js/dist/print/paper.css';
-    document.getElementsByTagName('head')[0].appendChild(link);
-  </script>
-
   <style>
      .line {
       display: block;
