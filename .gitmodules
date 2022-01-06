@@ -1,19 +1,15 @@
 [submodule "libs/reveal.js"]
 	path = libs/reveal.js
 	url = git@github.com:hakimel/reveal.js.git
-
 [submodule "libs/reveal.js-plugins"]
 	path = libs/reveal.js-plugins
-	url = git@github.com:rajgoel/reveal.js-plugins/
-
+	url = https://github.com/rajgoel/reveal.js-plugins
 [submodule "libs/other-plugins/menu"]
 	path = libs/other-plugins/menu
-	url = git@github.com:denehyg/reveal.js-menu.git
-
+	url = https://github.com/denehyg/reveal.js-menu
 [submodule "libs/other-plugins/mermaid"]
 	path = libs/other-plugins/mermaid
-	url = git@github.com:mermaid-js/mermaid.git
-
+	url = https://github.com/mermaid-js/mermaid.git
 [submodule "libs/other-plugins/title-footer"]
 	path = libs/other-plugins/title-footer
-	url = git@github.com:e-gor/Reveal.js-Title-Footer.git
+	url = https://github.com/e-gor/Reveal.js-Title-Footer
