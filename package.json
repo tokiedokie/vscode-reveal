@@ -377,7 +377,7 @@
     "koa-ejs": "^4.3.0",
     "koa-logger": "^3.2.1",
     "koa-static-server": "^1.5.2",
-    "markdown-it": "^11.0.0",
+    "markdown-it": "^12.3.2",
     "markdown-it-attrs": "^3.0.3",
     "markdown-it-block-embed": "0.0.3",
     "markdown-it-container": "^3.0.0",
